@@ -1,0 +1,33 @@
+metadata:
+  name: waterlevelsensor
+  labels:
+    nuclio.io/project-name: 01df174d-761a-41e8-8bed-a7995d354b0a
+spec:
+  handler: "main:handler"
+  runtime: nodejs
+  resources: {}
+  image: "nuclio/processor-waterlevelsensor:latest"
+  minReplicas: 1
+  maxReplicas: 1
+  targetCPU: 75
+  triggers:
+    waterlevelTrigger:
+      class: ""
+      kind: mqtt
+      url: "192.168.1.4:1883"
+      username: guest
+      password: guest
+      attributes:
+        subscriptions:
+          - qos: 0
+            topic: iot/sensors/waterlevel
+  build:
+    functionSourceCode: Y29uc3QgYW1xcCA9IHJlcXVpcmUoJ2FtcXBsaWInKQ0KDQoNCmNvbnN0IGxvZyA9ICJpb3QvbG9ncyINCmNvbnN0IG1vbml0b3IgPSAiaW90L21vbml0b3IiDQoNCmZ1bmN0aW9uIHNlbmRGZWVkYmFja0FtcXAocXVldWUsbXNnKXsNCiAgICBhbXFwLmNvbm5lY3QoJ2FtcXA6Ly9ndWVzdDpndWVzdEAxOTIuMTY4LjEuNDo1NjcyJykudGhlbihmdW5jdGlvbihjb25uKSB7DQogICAgICAgIHJldHVybiBjb25uLmNyZWF0ZUNoYW5uZWwoKS50aGVuKGZ1bmN0aW9uKGNoKSB7DQogICAgICAgICAgICBjb25zdCBvayA9IGNoLmFzc2VydFF1ZXVlKHF1ZXVlLCB7ZHVyYWJsZTogZmFsc2V9KTsNCiAgICAgICAgICAgIHJldHVybiBvay50aGVuKGZ1bmN0aW9uKF9xb2spIHsNCiAgICAgICAgICAgIGNoLnNlbmRUb1F1ZXVlKHF1ZXVlLCBCdWZmZXIuZnJvbShtc2cpKTsNCiAgICAgICAgICAgIGNvbnNvbGUubG9nKCIgW3hdIFNlbnQgJyVzJyIsIG1zZyk7DQogICAgICAgICAgICByZXR1cm4gY2guY2xvc2UoKTsNCiAgICAgICAgICAgIH0pOw0KICAgICAgICB9KS5maW5hbGx5KGZ1bmN0aW9uKCkgeyANCiAgICAgICAgICAgICAgICBjb25uLmNsb3NlKCk7DQogICAgICAgICAgICB9KTsNCiAgICB9KS5jYXRjaChjb25zb2xlLndhcm4pOw0KfQ0KDQpmdW5jdGlvbiBiaW4yc3RyaW5nKGFycmF5KXsNCiAgICB2YXIgcmVzdWx0ID0gIiI7DQogICAgZm9yKHZhciBpID0gMDsgaSA8IGFycmF5Lmxlbmd0aDsgKytpKXsNCiAgICAgICAgcmVzdWx0ICs9IChTdHJpbmcuZnJvbUNoYXJDb2RlKGFycmF5W2ldKSk7DQogICAgfQ0KICAgIHJldHVybiByZXN1bHQ7DQp9DQpleHBvcnRzLmhhbmRsZXIgPSBmdW5jdGlvbihjb250ZXh0LCBldmVudCkgew0KICAgIHZhciBfZXZlbnQgPSBKU09OLnBhcnNlKEpTT04uc3RyaW5naWZ5KGV2ZW50KSk7DQogICAgdmFyIF9kYXRhID0gYmluMnN0cmluZyhfZXZlbnQuYm9keS5kYXRhKTsNCg0KICAgIGNvbnRleHQuY2FsbGJhY2soImZlZWRiYWNrICIrX2RhdGEpOw0KDQogICAgY29uc29sZS5sb2coIlRSSUdHRVIgIitfZGF0YSk7DQogICAgc2VuZEZlZWRiYWNrQW1xcChsb2csIldhdGVybGV2ZWwgOiAiK19kYXRhKQ0KICAgIHNlbmRGZWVkYmFja0FtcXAobW9uaXRvciwiV2F0ZXJsZXZlbCA6ICIrX2RhdGEpDQp9Ow==
+    commands:
+      - 'npm install amqplib'
+    runtimeAttributes:
+      repositories: []
+    codeEntryType: sourceCode
+  platform: {}
+  readinessTimeoutSeconds: 60
+  version: 1
