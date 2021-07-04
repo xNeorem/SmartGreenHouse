@@ -1,4 +1,5 @@
-const amqp = require('amqplib');
+const amqp = require('amqplib')
+const moment = require('moment')
 require('dotenv').config()
 
 const queue="iot/monitor"
@@ -25,7 +26,7 @@ amqp.connect('amqp://guest:guest@:5672').then(function(conn) {
             return ch.consume(queue, function(msg) {
                 const [key, value] = msg.content.toString().split(' : ')
                 status[key]=value
-                console.log(status);
+                console.log(`${moment().format('MMMM Do YYYY, h:mm:ss a')} --- ${JSON.stringify(status)}\n`);
             }, {
                 noAck: true
             });
