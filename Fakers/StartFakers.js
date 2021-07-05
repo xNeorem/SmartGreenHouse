@@ -18,10 +18,10 @@ const hygrometer = new HygrometerFaker()
 const photoresistor = new PhotoresistorFaker()
 const waterLevelSensor = new WaterLevelSensorFaker()
 
-dht11.loop(5 * 60 * 60) // 1sec
-hygrometer.loop(5 * 60 * 60) // 1sec
-photoresistor.loop(5 * 60 * 60) // 1sec
-waterLevelSensor.loop(5 * 60 * 60) // 1sec
+dht11.loop(5 * 60 * 60)
+hygrometer.loop(5 * 60 * 60) 
+photoresistor.loop(5 * 60 * 60)
+waterLevelSensor.loop(5 * 60 * 60)
 
 
 
