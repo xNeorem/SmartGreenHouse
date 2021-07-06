@@ -15,6 +15,8 @@ The aim of the project is to simulate the sensors and devices used in a small ho
 
 ## Architecture
 
+![Architecture.jpg](img/Architecture.jpg)
+
 As previously mentioned, all tools such as sensors and devices are falsified through special scripts.
 Each sensor uses its own topic to send data with a QoS set to 0. Each sensor is assigned a relative function to process the data. Only the DHT11 sensor triggers two functions because there are two devices that need to be managed by the data.
 
