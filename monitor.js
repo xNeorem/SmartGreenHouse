@@ -32,7 +32,7 @@ amqp.connect('amqp://guest:guest@:5672').then(function(conn) {
             });
         });
         return ok.then(function(_consumeOk) {
-            console.log(' Monitor started. To exit press CTRL+C');
+            console.log('Monitor started. To exit press CTRL+C');
         });
     });
 }).catch(console.warn);
