@@ -1,6 +1,7 @@
 # **SmartGreenhouse**: Serverless Computing For IoT Project
-
+<p align="center">
 <img src="img/logo.png" alt="logo" width="200" align="middle"/>
+</p>
 
 ## Summary
 
